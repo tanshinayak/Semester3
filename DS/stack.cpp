@@ -1,86 +1,84 @@
-//roll no 94057 - 94051
-//objective :- implementation of stacks using array
+//18/94067	Chaitanya Raj
+//Practical 5 - implementation of stacks using array
+
 #include<iostream>
-#include<conio.h>
 using namespace std;
-class stack
+
+template<class T>
+
+class Stack
 {
-	int *arr;
+	T *arr;
 	int top,size;
+	
 	public : 
-		stack(int n)	
+		Stack(int n)	
 		{
-			arr=new int[n];
 			size = n;
+			arr=new T[n];
 			top=-1;
 		}
-		
-		void push(int val);
-		void pop();
-		bool isfull();
-		bool isempty();
-		void display();
-};
-bool stack::isempty()
-{
-	return top == -1;
-}
 
-bool stack::isfull()
-{
-	return top == size-1;
-}
-void stack::push(int val)
-{
-	if(isfull())
-	{
-		cout<<"Stack Overflow"<<endl;
-	}
-	else
-	{
-		top++;
-		arr[top]=val;
-	}
-}
-void stack::pop()
-{
-	if(isempty())
-	{
-		cout<<"Stack Underflow "<<endl;
-	}
-	else
-	{
-		cout<<"Element popped "<<arr[top]<<endl;
-		top--;
-	}
-}
-void stack::display()
-{
-	if(top>-1)
-	{
-		for(int i=top;i>=0;i--)
+		void push(T val)
 		{
-			cout<<arr[i]<<endl;
+			if(isfull())
+			{
+				cout<<"Stack Overflow"<<endl;
+			}
+			else
+			{
+				top++;
+				arr[top]=val;
+			}
 		}
-	}
-	else
-	{
-		cout<<"stack is empty "<<endl;
-	}
-}
+		
+		T pop()
+		{
+			T val = arr[top];
+			top--;
+			return val;
+		}
+		
+		bool isfull()
+		{
+			return top == size-1;
+		}
+		
+		bool isempty()
+		{
+			return top == -1;
+		}
+		
+		void display()
+		{
+			if(top>-1)
+			{
+				for(int i=top;i>=0;i--)
+				{
+					cout<<arr[i]<<"->";
+				}
+				cout<<"!!!"<<endl;
+			}
+			else
+			{
+				cout<<"stack is empty "<<endl;
+			}
+		}
+};
+
 int main()
 {
-	int s,val;
-	cout<<"enter the size of a stack"<<endl;
-	cin>>s;
-	stack s1(s);
+	int n,val;
+	cout<<"Enter the size of a stack : "<<endl;
+	cin>>n;
+	Stack<int> s(n);
 	int ch;
 	char c;
 	do
 	{
-		cout<<"Enter your choice among following "<<endl;
-		cout<<"1. Insert an element"<<endl;
-		cout<<"2.Delete an element "<<endl;
+		cout<<"\nEnter your choice among following "<<endl;
+		cout<<"1.Push an element"<<endl;
+		cout<<"2.Pop an element "<<endl;
 		cout<<"3.Display stack"<<endl;
 		cin>>ch;
 		switch(ch)
@@ -88,22 +86,27 @@ int main()
 			case 1:
 				cout<<"enter the value to be inserted "<<endl;
 				cin>>val;
-				s1.push(val);
+				s.push(val);
 				break;
-			case 2:
-				s1.pop();
+			case 2:	
+				if(s.isempty())
+				{
+					cout<<"Stack Underflow "<<endl;
+				}
+				else
+				{
+					cout<<"Element popped "<<s.pop()<<endl;
+				}
 				break;
 			case 3:
-				s1.display();
+				s.display();
 				break;
 			default:
 				cout<<"Invalid choice "<<endl;
 		}
-		cout<<"Do you want to continue If yes then press Y "<<endl;
+		cout<<"Continue?(y/n)"<<endl;
 		cin>>c;
 	}
 	while(c=='y' || c=='Y');
-
-	getch();
 	return 0;
 }
