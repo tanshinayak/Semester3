@@ -1,10 +1,14 @@
+//18/94067	Chaitanya Raj
+//Practical 4 - parenthesis matching
+
 #include<iostream>
-#include<conio.h>
-#include"stack.cpp"
+#include "stack.cpp"
 using namespace std;
-void matchparenthesis(string s,int n)
-{   char ele;
-   int failure=0;
+
+void matchParen(string s,int n)
+{  
+	char ele;
+    int failure=0;
 	Stack<char> ob(n);
 	int i=0;
 	while(s[i]!='\0')
@@ -40,11 +44,11 @@ void matchparenthesis(string s,int n)
 	
 	if(failure==1)
 	{ 
-	  cout<<"parenthesis doesnot match"<<endl;
+	  cout<<"parenthesis does not match"<<endl;
 	}
 	else if(ob.isempty())
 	  cout<<"parenthesis match"<<endl;
-	  else cout<<"It doesnot"<<endl;
+	  else cout<<"It doe snot"<<endl;
 
 	
 
@@ -55,8 +59,7 @@ int main()
      cout<<"Enter a stack"<<endl;
      getline(cin,str);
      int l=str.length();
-     matchparenthesis(str,l);
-     getch();
+     matchParen(str,l);
      return 0;
 }
 

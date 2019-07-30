@@ -2,6 +2,7 @@
 //Practical 5 - implementation of stacks using array
 
 #include<iostream>
+
 using namespace std;
 
 template<class T>

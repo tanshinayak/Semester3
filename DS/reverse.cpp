@@ -1,6 +1,9 @@
+//18/94067	Chaitanya Raj
+//Practical  - reverse of string (recursion)
+
 #include<iostream>
-#include<conio.h>
 using namespace std;
+
 string rev(string s,int i,int j)
 {
 	if((i==j)||(i>j))
@@ -13,14 +16,14 @@ string rev(string s,int i,int j)
 		return rev(s,++i,--j);
 	}
 }
+
 int main()
 {
 	string s1;
-	cout<<"enter a string which you want to reverse"<<endl;
+	cout<<"Enter a string to be reversed : "<<endl;
 	cin>>s1;
 	int len=s1.length()-1;
 	string result=rev(s1,0,len);
-	cout<<"reversed string is "<<result;
-	getch();
+	cout<<"Reversed string is "<<result;
 	return 0;
 }
