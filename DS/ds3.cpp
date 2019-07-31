@@ -1,5 +1,4 @@
-//18/94067	Chaitanya Raj
-//Practical  - reverse of string (recursion)
+//Practical 3 - reverse of string (recursion)
 
 #include<iostream>
 using namespace std;

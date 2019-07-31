@@ -1,4 +1,3 @@
-//18/94067	Chaitanya Raj
 //Practical 5 - stack implementation using templates
 
 #include<iostream>
@@ -54,11 +53,12 @@ class Stack
 		{
 			if(top>-1)
 			{
+				cout<<"!!!";
 				for(int i=top;i>=0;i--)
 				{
-					cout<<arr[i]<<"->";
+					cout<<"<-"<<arr[i];
 				}
-				cout<<"!!!"<<endl;
+				
 			}
 			else
 			{
@@ -66,7 +66,7 @@ class Stack
 			}
 		}
 };
-
+/* 
 int main()
 {
 	int n,val;
@@ -110,4 +110,4 @@ int main()
 	}
 	while(c=='y' || c=='Y');
 	return 0;
-}
+} */

@@ -1,8 +1,7 @@
-//18/94067	Chaitanya Raj
-//Practical 4 - parenthesis matching
+//Practical 9 - parenthesis matching
 
 #include<iostream>
-#include "stack.cpp"
+#include "ds5.cpp"
 using namespace std;
 
 void matchParen(string s,int n)
