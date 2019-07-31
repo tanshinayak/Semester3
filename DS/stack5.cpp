@@ -1,5 +1,5 @@
 //18/94067	Chaitanya Raj
-//Practical 5 - implementation of stacks using array
+//Practical 5 - stack implementation using templates
 
 #include<iostream>
 
