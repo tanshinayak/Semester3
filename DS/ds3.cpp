@@ -6,7 +6,7 @@ using namespace std;
 string rev(string s,int i,int j)
 {
 	if((i==j)||(i>j))
-	return s;
+		return s;
 	else
 	{
 		char c=s[i];

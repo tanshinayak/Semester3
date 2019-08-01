@@ -13,11 +13,11 @@ int rec(int b, int r)
 
 int main()
 {
-    int base,expo;
+    int b,r;
     cout<<"\nEnter the base : ";
-    cin>>base;
+    cin>>b;
     cout<<"\nEnter the exponent : ";
-    cin>>expo;
-    cout<<"\n"<<base<<" raised to the power "<<expo<<" is "<<rec(base,expo);
+    cin>>r;
+    cout<<"\n"<<b<<" raised to the power "<<r<<" is "<<rec(b,r);
     return 0;
 }

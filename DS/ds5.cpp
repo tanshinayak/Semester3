@@ -66,7 +66,7 @@ class Stack
 			}
 		}
 };
-/* 
+
 int main()
 {
 	int n,val;
@@ -110,4 +110,4 @@ int main()
 	}
 	while(c=='y' || c=='Y');
 	return 0;
-} */
+}
