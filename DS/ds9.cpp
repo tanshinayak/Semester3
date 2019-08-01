@@ -6,7 +6,7 @@ using namespace std;
 
 void matchParen(string s,int n)
 {  
-	char ele;
+	char element;
     int failure=0;
 	Stack<char> ob(n);
 	int i=0;
@@ -16,38 +16,37 @@ void matchParen(string s,int n)
 		       ob.push(s[i]);
 		 else if((s[i]==')')||((s[i])=='}')||(s[i]==']'))
 		      {  
-		        ele=ob.pop();
+		        element=ob.pop();
 		         
 		        if(s[i]==')')
-			    	if (ele!='(')
+			    	if (element!='(')
 					  {
 					  	failure = 1;
 						break;}
 						
 		         if(s[i]=='}')
-		      	  if(ele!='{')
+		      	  if(element!='{')
 		      	  { failure=1;
 		      	    break;
 		      	  }
 		      	  
 		      	 if(s[i]==']')
-		      	if( ele=='[')
+		      	if( element!='[')
 		      	  { failure=1;
 		      	    break;
 		      	  }
 		      }
-		      
-		 else break;
 		 i++;     
 	}
 	
 	if(failure==1)
 	{ 
-	  cout<<"parenthesis does not match"<<endl;
+	  cout<<"parenthesis do not match"<<endl;
 	}
 	else if(ob.isempty())
-	  cout<<"parenthesis match"<<endl;
-	  else cout<<"It doe snot"<<endl;
+		cout<<"parenthesis match"<<endl;
+	else
+		cout<<"parenthesis do not match"<<endl;
 
 	
 

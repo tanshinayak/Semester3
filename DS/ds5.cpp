@@ -78,8 +78,8 @@ int main()
 	do
 	{
 		cout<<"\nEnter your choice among following "<<endl;
-		cout<<"1.Push an element"<<endl;
-		cout<<"2.Pop an element "<<endl;
+		cout<<"1.Push an elementment"<<endl;
+		cout<<"2.Pop an elementment "<<endl;
 		cout<<"3.Display stack"<<endl;
 		cin>>ch;
 		switch(ch)
@@ -96,7 +96,7 @@ int main()
 				}
 				else
 				{
-					cout<<"Element popped "<<s.pop()<<endl;
+					cout<<"elementment popped "<<s.pop()<<endl;
 				}
 				break;
 			case 3:

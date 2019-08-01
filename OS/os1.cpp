@@ -18,7 +18,7 @@ int main()
 	{
 		printf("\nSystem name:%s",s2.sysname);
 		printf("\nKernal version: %s",s2.version);
-		printf("\nRelease : %s",s2.release);
+		printf("\nRelementase : %s",s2.relementase);
 		printf("\nMachine : %s",s2.machine);
 		printf("\nTotal ram: %ldmb",(s1.totalram/MB));
 		printf("\nFree ram : %ldmb",(s1.freeram/MB));
