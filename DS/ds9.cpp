@@ -41,12 +41,12 @@ void matchParen(string s,int n)
 	
 	if(failure==1)
 	{ 
-	  cout<<"parenthesis does not match"<<endl;
+	  cout<<"parenthesis do not match"<<endl;
 	}
 	else if(ob.isempty())
 		cout<<"parenthesis match"<<endl;
 	else
-		cout<<"It does not"<<endl;
+		cout<<"parenthesis do not match"<<endl;
 
 	
 
