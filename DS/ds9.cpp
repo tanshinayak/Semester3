@@ -12,7 +12,7 @@ void matchParen(string s,int n)
 	int i=0;
 	while(s[i]!='\0')
 	{
-		 if( (s[i]=='(')||(s[i]=='{')||(s[i]=='['))
+		 if((s[i]=='(')||(s[i]=='{')||(s[i]=='['))
 		       ob.push(s[i]);
 		 else if((s[i]==')')||((s[i])=='}')||(s[i]==']'))
 		      {  
@@ -40,18 +40,13 @@ void matchParen(string s,int n)
 	}
 	
 	if(failure==1)
-	{ 
 	  cout<<"parenthesis do not match"<<endl;
-	}
 	else if(ob.isempty())
 		cout<<"parenthesis match"<<endl;
 	else
 		cout<<"parenthesis do not match"<<endl;
-
-	
-
-	
 }
+
 int main()
 {    string str;
      cout<<"Enter a stack"<<endl;

@@ -53,12 +53,11 @@ class Stack
 		{
 			if(top>-1)
 			{
-				cout<<"!!!";
 				for(int i=top;i>=0;i--)
 				{
-					cout<<"<-"<<arr[i];
+					cout<<arr[i]<<"->";
 				}
-				
+				cout<<"!!!";
 			}
 			else
 			{
@@ -67,7 +66,7 @@ class Stack
 		}
 };
 
-int main()
+/* int main()
 {
 	int n,val;
 	cout<<"Enter the size of a stack : "<<endl;
@@ -78,8 +77,8 @@ int main()
 	do
 	{
 		cout<<"\nEnter your choice among following "<<endl;
-		cout<<"1.Push an elementment"<<endl;
-		cout<<"2.Pop an elementment "<<endl;
+		cout<<"1.Push an element"<<endl;
+		cout<<"2.Pop an element "<<endl;
 		cout<<"3.Display stack"<<endl;
 		cin>>ch;
 		switch(ch)
@@ -110,4 +109,4 @@ int main()
 	}
 	while(c=='y' || c=='Y');
 	return 0;
-}
+} */
