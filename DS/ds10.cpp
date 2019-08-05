@@ -8,9 +8,11 @@ int main()
 {
     string num1,num2,result;
     cout<<"\nEnter first number : ";
-    getline(cin,num1);
+    cin>>num1;
+    // getline(cin,num1);
     cout<<"\nEnter second number : ";
-    getline(cin,num2);
+    cin>>num2;
+    // getline(cin,num2);
     Stack<char> s1(10),s2(10),s3(11);
     for(int i=0;num1[i]!='\0';i++)
     {
@@ -48,8 +50,8 @@ int main()
     }
     while(!s3.isempty())
     {
-        char y = s3.pop();
-        result+=y;
+        char a = s3.pop();
+        result+=a;
     }
-    cout<<"Sum = "<<result;
+    cout<<"\nSum = "<<result;
 }
