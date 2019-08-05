@@ -1,4 +1,4 @@
-//Practical 10 - stack addition
+//Practical 8 - stack addition
 
 #include<iostream>
 #include "ds5.cpp"
