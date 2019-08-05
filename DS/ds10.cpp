@@ -7,7 +7,9 @@ using namespace std;
 int main()
 {
     string num1,num2,result;
+    cout<<"\nEnter first number : ";
     getline(cin,num1);
+    cout<<"\nEnter second number : ";
     getline(cin,num2);
     Stack<char> s1(10),s2(10),s3(11);
     for(int i=0;num1[i]!='\0';i++)
@@ -49,5 +51,5 @@ int main()
         char y = s3.pop();
         result+=y;
     }
-    cout<<result;
+    cout<<"Sum = "<<result;
 }
