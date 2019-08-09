@@ -104,26 +104,16 @@ class LinkedList
     }
     void reverse()
     {
-        Node* prev = head;
-        Node* temp = head->next;
-        Node* x = head;
+        Node* prev = NULL;
+        Node* next = NULL;
         while(head!=NULL)
         {
-            if(x==head)
-            {
-                x = head->next;
-                prev = head;
-                prev->next = NULL;
-                head = x;
-            }
-            else
-            {
-                temp = x;
-                x = temp->next;
-                temp->next = prev;
-                prev = temp;
-            }
+            next = head->next;
+            head->next = prev;
+            prev = head;
+            head = next;
         }
+        head = prev;
     }
     void concat(Node* b)
     {
