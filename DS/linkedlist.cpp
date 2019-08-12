@@ -115,15 +115,8 @@ class LinkedList
         }
         head = prev;
     }
-    void concat()
+    void concat(LinkedList l2)
     {
-        LinkedList l2;
-        cout<<"\nInsert elements of second list (-1 to end list)";
-        int x;
-        while(x!=-1){
-            cin>>x;
-            l2.insertionTail(x);
-        }
         Node* temp = head;
         while(temp->next!=NULL)
             temp=temp->next;
@@ -138,6 +131,13 @@ class LinkedList
             temp=temp->next;
         }
         cout<<"!!!";
+    }
+    void operator +(LinkedList l2)
+    {
+        Node* temp = head;
+        while(temp->next!=NULL)
+            temp=temp->next;
+        temp->next = l2.head;
     }
 };
 
@@ -179,18 +179,34 @@ int main()
 				break;
             case 5:
                 cout<<"\nEnter the data to be searched : ";
-                int x;
-                cin>>x;
-                l.search(x);
+                cin>>val;
+                l.search(val);
                 break;
             case 6:
                 l.reverse();
                 cout<<"\nThe list has been reversed";
                 break;
             case 7:
-                l.concat();
+                LinkedList l3;
+                cout<<"\nInsert elements of second list (-1 to end list)";
+                int x;
+                while(x!=-1){
+                    cin>>x;
+                    l3.insertionTail(x);
+                }
+                l.concat(l3);
                 break;
 			case 8:
+                LinkedList l4;
+                cout<<"\nInsert elements of second list (-1 to end list)";
+                int y;
+                while(y!=-1){
+                    cin>>y;
+                    l4.insertionTail(y);
+                }
+                l + l4;
+                break;
+            case 9:
 				l.display();
 				break;
 			default:
