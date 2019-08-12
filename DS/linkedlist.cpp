@@ -115,12 +115,19 @@ class LinkedList
         }
         head = prev;
     }
-    void concat(Node* b)
+    void concat()
     {
+        LinkedList l2;
+        cout<<"\nInsert elements of second list (-1 to end list)";
+        int x;
+        while(x!=-1){
+            cin>>x;
+            l2.insertionTail(x);
+        }
         Node* temp = head;
-        while(temp!=NULL)
+        while(temp->next!=NULL)
             temp=temp->next;
-        temp->next = b;
+        temp->next = l2.head;
     }
     void display()
     {
@@ -136,7 +143,7 @@ class LinkedList
 
 int main()
 {
-    LinkedList l1;
+    LinkedList l;
     int ch;
 	char c;
 	do
@@ -157,34 +164,34 @@ int main()
 			case 1:
 				cout<<"\nenter the value to be inserted "<<endl;
 				cin>>val;
-				l1.insertionHead(val);
+				l.insertionHead(val);
 				break;
             case 2:
 				cout<<"\nenter the value to be inserted "<<endl;
 				cin>>val;
-				l1.insertionTail(val);
+				l.insertionTail(val);
 				break;
 			case 3:
-				l1.deletionHead();
+				l.deletionHead();
 				break;
 			case 4:
-				l1.deletionTail();
+				l.deletionTail();
 				break;
             case 5:
                 cout<<"\nEnter the data to be searched : ";
                 int x;
                 cin>>x;
-                l1.search(x);
+                l.search(x);
                 break;
             case 6:
-                l1.reverse();
+                l.reverse();
                 cout<<"\nThe list has been reversed";
                 break;
             case 7:
-                cout<<"\nWork in progress";
+                l.concat();
                 break;
 			case 8:
-				l1.display();
+				l.display();
 				break;
 			default:
 				cout<<"\nInvalid choice "<<endl;
