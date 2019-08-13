@@ -115,13 +115,6 @@ class LinkedList
         }
         head = prev;
     }
-    void concat(LinkedList l2)
-    {
-        Node* temp = head;
-        while(temp->next!=NULL)
-            temp=temp->next;
-        temp->next = l2.head;
-    }
     void display()
     {
         Node* temp = head;
@@ -132,89 +125,129 @@ class LinkedList
         }
         cout<<"!!!";
     }
-    void operator +(LinkedList l2)
+    LinkedList operator +(LinkedList l2)
     {
+        LinkedList x;
         Node* temp = head;
+        Node* create = new Node;
         while(temp->next!=NULL)
+        {
+            create->data = temp->data;
+            create->next = NULL;
+            Node* xtemp = x.head;
+            while(xtemp!=NULL)
+                xtemp=xtemp->next;
+            xtemp = create;
+            create = create->next;
             temp=temp->next;
-        temp->next = l2.head;
+        }
+        temp = l2.head;
+        while(temp->next!=NULL)
+        {
+            create->data = temp->data;
+            create->next = x.head;
+            Node* xtemp = x.head;
+            while(xtemp!=NULL)
+                xtemp=xtemp->next;
+            xtemp = create;
+            create = create->next;
+            temp=temp->next;
+        }
+        return x;
     }
 };
 
 int main()
 {
-    LinkedList l;
-    int ch;
-	char c;
+    LinkedList l1,l2,l3;
+    int lch,ch;
+	char cont;
 	do
 	{
-		cout<<"\nEnter your choice among following "<<endl;
-		cout<<"1.Insert an element at beginning"<<endl;
-		cout<<"2.Insert an element at end"<<endl;
-		cout<<"3.Delete an element from beginning"<<endl;
-		cout<<"4.Delete an element from end"<<endl;
-        cout<<"5.Search the list"<<endl;
-        cout<<"6.Reverse the list"<<endl;
-        cout<<"7.Concatenate 2 lists"<<endl;
-		cout<<"8.Display Linked List\n"<<endl;
-		cin>>ch;
-		switch(ch)
-		{
-            int val;
-			case 1:
-				cout<<"\nenter the value to be inserted "<<endl;
-				cin>>val;
-				l.insertionHead(val);
-				break;
-            case 2:
-				cout<<"\nenter the value to be inserted "<<endl;
-				cin>>val;
-				l.insertionTail(val);
-				break;
-			case 3:
-				l.deletionHead();
-				break;
-			case 4:
-				l.deletionTail();
-				break;
-            case 5:
-                cout<<"\nEnter the data to be searched : ";
-                cin>>val;
-                l.search(val);
-                break;
-            case 6:
-                l.reverse();
-                cout<<"\nThe list has been reversed";
-                break;
-            case 7:
-                LinkedList l3;
-                cout<<"\nInsert elements of second list (-1 to end list)";
-                int x;
-                while(x!=-1){
-                    cin>>x;
-                    l3.insertionTail(x);
-                }
-                l.concat(l3);
-                break;
-			case 8:
-                LinkedList l4;
-                cout<<"\nInsert elements of second list (-1 to end list)";
-                int y;
-                while(y!=-1){
-                    cin>>y;
-                    l4.insertionTail(y);
-                }
-                l + l4;
-                break;
-            case 9:
-				l.display();
-				break;
-			default:
-				cout<<"\nInvalid choice "<<endl;
-		}
-		cout<<"\n\nContinue?(y/n)"<<endl;
-		cin>>c;
+        cout<<"\n\nWhich list do you want to operate on\n1.l1\n2.l2\n";
+        cin>>lch;
+        if(lch==1||lch==2)
+        {
+            cout<<"\nEnter your choice among following "<<endl;
+            cout<<"1.Insert an element at beginning"<<endl;
+            cout<<"2.Insert an element at end"<<endl;
+            cout<<"3.Delete an element from beginning"<<endl;
+            cout<<"4.Delete an element from end"<<endl;
+            cout<<"5.Search the list"<<endl;
+            cout<<"6.Reverse the list"<<endl;
+            cout<<"7.Concatenate 2 lists"<<endl;
+            cout<<"8.Display Linked List\n"<<endl;
+            cin>>ch;
+            switch(ch)
+            {
+                int val;
+                case 1:
+                    cout<<"\nenter the value to be inserted "<<endl;
+                    cin>>val;
+                    if(lch==1)
+                        l1.insertionHead(val);
+                    else if(lch==2)
+                        l2.insertionHead(val);
+                    break;
+                case 2:
+                    cout<<"\nenter the value to be inserted "<<endl;
+                    cin>>val;
+                    if(lch==1)
+                        l1.insertionTail(val);
+                    else if(lch==2)
+                        l2.insertionTail(val);
+                    break;
+                case 3:
+                   if(lch==1)
+                        l1.deletionHead();
+                    else if(lch==2)
+                        l2.deletionHead();
+                    break;
+                case 4:
+                    if(lch==1)
+                        l1.deletionTail();
+                    else if(lch==2)
+                        l2.deletionTail();
+                    break;
+                case 5:
+                    cout<<"\nEnter the data to be searched : ";
+                    cin>>val;
+                    if(lch==1)
+                        l1.search(val);
+                    else if(lch==2)
+                        l2.search(val);
+                    break;
+                case 6:
+                    if(lch==1)
+                        l1.reverse();
+                    else if(lch==2)
+                        l2.reverse();
+                    cout<<"\nThe list has been reversed";
+                    break;
+                case 7:
+                    if(lch==1)
+                        l3 = l1 + l2;
+                    else if(lch==2)
+                        l3 = l2 + l1;
+                    l3.display();
+                    break;
+                case 8:
+                    if(lch==1)
+                        l1.display();
+                    else if(lch==2)
+                        l2.display();
+                    break;
+                default:
+                    cout<<"\nInvalid choice "<<endl;
+            }
+            cout<<"\n\nContinue?(y/n)"<<endl;
+            cin>>cont;
+        }
+        else
+        {
+            cout<<"\nInvalid List";
+        }
 	}
-	while(c=='y' || c=='Y');
+	while(cont=='y' || cont=='Y');
     return 0;
 }
