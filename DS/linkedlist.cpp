@@ -115,13 +115,6 @@ class LinkedList
         }
         head = prev;
     }
-    void concat(LinkedList l2)
-    {
-        Node* temp = head;
-        while(temp->next!=NULL)
-            temp=temp->next;
-        temp->next = l2.head;
-    }
     void display()
     {
         Node* temp = head;
@@ -158,6 +151,7 @@ int main()
         cout<<"7.Concatenate 2 lists"<<endl;
 		cout<<"8.Display Linked List\n"<<endl;
 		cin>>ch;
+        LinkedList l3;
 		switch(ch)
 		{
             int val;
@@ -187,26 +181,18 @@ int main()
                 cout<<"\nThe list has been reversed";
                 break;
             case 7:
-                LinkedList l3;
-                cout<<"\nInsert elements of second list (-1 to end list)";
+                cout<<"\nInsert elements of second list (-1 to end list)\n";
                 int x;
-                while(x!=-1){
+                while(true)
+                {
                     cin>>x;
+                    if(x==-1)
+                        break;
                     l3.insertionTail(x);
                 }
-                l.concat(l3);
+                l+l3;
                 break;
-			case 8:
-                LinkedList l4;
-                cout<<"\nInsert elements of second list (-1 to end list)";
-                int y;
-                while(y!=-1){
-                    cin>>y;
-                    l4.insertionTail(y);
-                }
-                l + l4;
-                break;
-            case 9:
+            case 8:
 				l.display();
 				break;
 			default:
