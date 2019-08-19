@@ -17,8 +17,8 @@ int main()
 	if(r==0&&q==0&p==0)
 	{
 		printf("\nSystem name:%s",s2.sysname);
-		printf("\nKernal version: %s",s2.version);
-		printf("\nRelementase : %s",s2.relementase);
+		printf("\nRelease: %s",s2.version);
+		printf("\nKernel Version : %s",s2.release);
 		printf("\nMachine : %s",s2.machine);
 		printf("\nTotal ram: %ldmb",(s1.totalram/MB));
 		printf("\nFree ram : %ldmb",(s1.freeram/MB));
