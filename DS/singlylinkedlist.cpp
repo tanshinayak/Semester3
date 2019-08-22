@@ -153,7 +153,7 @@ public:
             temp->next = obj.head;
         }
     }
-    LinkedList operator+(LinkedList obj)
+    LinkedList operator+(const LinkedList obj)
     {
         LinkedList x;
         x.head = NULL;
@@ -180,7 +180,8 @@ int main()
     char cont;
     do
     {
-        cout << "\n\nWhich list do you want to operate on\n1.l1\n2.l2\n3.l3";
+        cout << "\n\nWhich list do you want to operate on\n1.l1\n2.l2\n3.l3\n"
+             << endl;
         cin >> lch;
         if (lch == 1 || lch == 2 || lch == 3)
         {
