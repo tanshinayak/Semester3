@@ -58,8 +58,22 @@ class Buffer
     void display()
     {
         cout<<endl;
-        for(int i = 0; i<size; i++)
-            cout<<buf[i]<<"\t";
+        if(isEmpty())
+            cout<<"\nNothing to display...";
+        else if(out<=in)
+        {
+            cout<<"\nThe current buffer is \n";
+            for(int i = out; i<in; i++)
+                cout<<buf[i]<<"\t";
+        }
+        else
+        {   cout<<"\nThe current buffer is \n";
+            for(int i = out; i<size; i++)
+                cout<<buf[i]<<"\t";
+            for(int i = 0; i<=in; i++)
+                cout<<buf[i]<<"\t";
+        }
+        
         cout<<endl;
     }
 };
@@ -85,8 +99,7 @@ int main()
                     break;
             case 2: b.consume();
                     break;
-            case 3: cout<<"\nThe current buffer is \n";
-                    b.display();
+            case 3: b.display();
                     break;
             default:cout<<"\nInvalid Input";
         }
