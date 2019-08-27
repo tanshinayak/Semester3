@@ -3,6 +3,8 @@ using namespace std;
 
 int main()
 {
-    cout<<"Hello";
+    int x[3] = {0};
+    for(int i = 0; i<3; i++)
+        cout<<x[i]<<endl;
     return 0;
 }
