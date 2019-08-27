@@ -49,12 +49,22 @@ public:
     {
         if (head != NULL)
         {
-            Node *delnode = head;
-            cout << "element deleted " << head->data;
-            head = head->next;
-            delnode->next = NULL;
-            head->prev = NULL;
-            delete delnode;
+            if (head->next == NULL)
+            {
+                Node *delnode = head;
+                cout << "element deleted " << head->data;
+                head = NULL;
+                delete delnode;
+            }
+            else
+            {
+                Node *delnode = head;
+                cout << "element deleted " << head->data;
+                head = head->next;
+                delnode->next = NULL;
+                head->prev = NULL;
+                delete delnode;
+            }
         }
         else
         {
@@ -112,8 +122,16 @@ public:
     void reverse()
     {
         Node *temp;
-        if (head->next == NULL)
+        if (head == NULL)
+        {
+            cout << "\nList is empty.";
             return;
+        }
+        else if (head->next == NULL)
+        {
+            cout << "\nList only has one element";
+            return;
+        }
         while (head != NULL)
         {
             temp = head->next;
@@ -123,6 +141,7 @@ public:
             head = head->prev;
         }
         head = temp;
+        cout << "\nThe list has been reversed";
     }
     void display()
     {
@@ -186,7 +205,6 @@ int main()
             break;
         case 5:
             l1.reverse();
-            cout << "\nThe list has been reversed";
             break;
         case 6:
             l1.alt_display();
