@@ -108,35 +108,8 @@ public:
             cout << "List empty";
         }
     }
-    void search(int x)
-    {
-        if (head == NULL)
-            cout << "\nList empty";
-        else
-        {
-            Node *temp = head;
-            bool found = false;
-            while (true)
-            {
-                if (temp->data == x)
-                {
-                    found = true;
-                    break;
-                }
-                if (temp->next == head)
-                    break;
-                temp = temp->next;
-            }
-            if (found)
-                cout << "\nElement found in linked list";
-            else
-                cout << "\nElement not found in linked list";
-        }
-    }
     void reverse()
     {
-        Node *prev = NULL;
-        Node *next = NULL;
         if (head == NULL)
         {
             cout << "\nList is empty.";
@@ -147,17 +120,20 @@ public:
             cout << "\nList only has one element";
             return;
         }
+
+        Node *prev = NULL;
         Node *temp = head;
-        while (true)
+        Node *next;
+        do
         {
-            if (head->next == temp)
-                break;
-            next = head->next;
-            head->next = prev;
-            prev = head;
-            head = next;
-        }
+            next = temp->next;
+            temp->next = prev;
+            prev = temp;
+            temp = next;
+        } while (temp != head);
+        head->next = prev;
         head = prev;
+        cout << "\nThe list has been reversed";
     }
     void display()
     {
@@ -177,7 +153,7 @@ public:
         while (temp != NULL)
         {
             cout << temp->data << "->";
-            if (temp->next == head)
+            if (temp->next == head || temp->next->next == head)
                 break;
             temp = temp->next->next;
         }
@@ -197,10 +173,9 @@ int main()
         cout << "2.Insert an element at end" << endl;
         cout << "3.Delete an element from beginning" << endl;
         cout << "4.Delete an element from end" << endl;
-        cout << "5.Search the list" << endl;
-        cout << "6.Reverse the list" << endl;
-        cout << "7.Display alternate elements of Linked List" << endl;
-        cout << "8.Display Linked List\n"
+        cout << "5.Reverse the list" << endl;
+        cout << "6.Display alternate elements of Linked List" << endl;
+        cout << "7.Display Linked List\n"
              << endl;
         cin >> ch;
         switch (ch)
@@ -223,18 +198,12 @@ int main()
             l.deletionTail();
             break;
         case 5:
-            cout << "\nEnter the data to be searched : ";
-            cin >> val;
-            l.search(val);
+            l.reverse();
             break;
         case 6:
-            l.reverse();
-            cout << "\nThe list has been reversed";
-            break;
-        case 7:
             l.alt_display();
             break;
-        case 8:
+        case 7:
             l.display();
             break;
         default:
