@@ -1,30 +1,38 @@
 #include <iostream>
 using namespace std;
 
+template <class T>
 struct Node
 {
-    int data;
-    Node *next;
+    T data;
+    Node<T> *next;
 };
 
+template <class T>
 class LinkedList
 {
 public:
-    Node *head;
+    Node<T> *head;
     LinkedList()
     {
         head = NULL;
     }
-    void insertionHead(int n)
+    void insertionHead()
     {
-        Node *temp = new Node;
+        cout << "\nenter the value to be inserted " << endl;
+        T n;
+        cin >> n;
+        Node<T> *temp = new Node<T>;
         temp->data = n;
         temp->next = head;
         head = temp;
     }
-    void insertionTail(int n)
+    void insertionTail()
     {
-        Node *temp = new Node;
+        Node<T> *temp = new Node<T>;
+        cout << "\nenter the value to be inserted " << endl;
+        T n;
+        cin >> n;
         temp->data = n;
         temp->next = NULL;
         if (head == NULL)
@@ -33,7 +41,7 @@ public:
         }
         else
         {
-            Node *p = head;
+            Node<T> *p = head;
             while (p->next != NULL)
                 p = p->next;
             p->next = temp;
@@ -44,7 +52,7 @@ public:
     {
         if (head != NULL)
         {
-            Node *delnode = head;
+            Node<T> *delnode = head;
             cout << "element deleted " << head->data;
             head = head->next;
             delnode->next = NULL;
@@ -61,18 +69,18 @@ public:
         {
             if (head->next == NULL)
             {
-                Node *delnode = head;
+                Node<T> *delnode = head;
                 cout << "element deleted " << head->data;
                 head = NULL;
                 delete delnode;
             }
             else
             {
-                Node *temp = head;
+                Node<T> *temp = head;
                 while (temp->next->next != NULL)
                     temp = temp->next;
                 cout << "element deleted " << temp->next->data;
-                Node *delnode = temp->next;
+                Node<T> *delnode = temp->next;
                 delete delnode;
                 temp->next = NULL;
             }
@@ -82,13 +90,16 @@ public:
             cout << "List empty";
         }
     }
-    void search(int x)
+    void search()
     {
         if (head == NULL)
             cout << "\nList empty";
         else
         {
-            Node *temp = head;
+            cout << "\nEnter the data to be searched : ";
+            T x;
+            cin >> x;
+            Node<T> *temp = head;
             bool found = false;
             while (temp != NULL)
             {
@@ -104,8 +115,8 @@ public:
     }
     void reverse()
     {
-        Node *prev = NULL;
-        Node *next = NULL;
+        Node<T> *prev = NULL;
+        Node<T> *next = NULL;
         if (head->next == NULL)
             return;
         while (head != NULL)
@@ -119,7 +130,7 @@ public:
     }
     void display()
     {
-        Node *temp = head;
+        Node<T> *temp = head;
         while (temp != NULL)
         {
             cout << temp->data << "->";
@@ -129,7 +140,7 @@ public:
     }
     void alt_display()
     {
-        Node *temp = head;
+        Node<T> *temp = head;
         while (temp != NULL)
         {
             cout << temp->data << "->";
@@ -147,7 +158,7 @@ public:
             return;
         else
         {
-            Node *temp = head;
+            Node<T> *temp = head;
             while (temp->next != NULL)
                 temp = temp->next;
             temp->next = obj.head;
@@ -157,8 +168,8 @@ public:
     {
         LinkedList x;
         x.head = NULL;
-        Node *temp1 = head;
-        Node *temp2 = obj.head;
+        Node<T> *temp1 = head;
+        Node<T> *temp2 = obj.head;
         while (temp1 != NULL)
         {
             x.insertionTail(temp1->data);
@@ -175,7 +186,7 @@ public:
 
 int main()
 {
-    LinkedList l1, l2, l3;
+    LinkedList<int> l1, l2, l3;
     int lch, ch;
     char cont;
     do
@@ -200,26 +211,21 @@ int main()
             cin >> ch;
             switch (ch)
             {
-                int val;
             case 1:
-                cout << "\nenter the value to be inserted " << endl;
-                cin >> val;
                 if (lch == 1)
-                    l1.insertionHead(val);
+                    l1.insertionHead();
                 else if (lch == 2)
-                    l2.insertionHead(val);
+                    l2.insertionHead();
                 else if (lch == 3)
-                    l3.insertionHead(val);
+                    l3.insertionHead();
                 break;
             case 2:
-                cout << "\nenter the value to be inserted " << endl;
-                cin >> val;
                 if (lch == 1)
-                    l1.insertionTail(val);
+                    l1.insertionTail();
                 else if (lch == 2)
-                    l2.insertionTail(val);
+                    l2.insertionTail();
                 else if (lch == 3)
-                    l3.insertionTail(val);
+                    l3.insertionTail();
                 break;
             case 3:
                 if (lch == 1)
@@ -238,14 +244,12 @@ int main()
                     l3.deletionTail();
                 break;
             case 5:
-                cout << "\nEnter the data to be searched : ";
-                cin >> val;
                 if (lch == 1)
-                    l1.search(val);
+                    l1.search();
                 else if (lch == 2)
-                    l2.search(val);
+                    l2.search();
                 else if (lch == 3)
-                    l3.search(val);
+                    l3.search();
                 break;
             case 6:
                 if (lch == 1)
