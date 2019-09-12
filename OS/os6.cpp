@@ -18,13 +18,13 @@ int main()
     {
         read(p[0], buf, msize);
         cout << "\nChild Process " << pid;
-        // close(p[0]);
+    	close(p[0]);    
     }
     else if (pid > 0)
     {
         write(p[1], msg, msize);
         cout << "\nParent Process " << pid;
-        // // close(p[1]);
+        close(p[1]);
     }
     else
     {
