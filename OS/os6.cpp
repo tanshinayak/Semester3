@@ -10,9 +10,11 @@ int main()
     char msg[] = "\nMessage Passing\n";
     char buf[msize];
     int p[2];
+
     int a = pipe(p);
     if (a < 0)
         exit(1);
+    
     pid = fork();
     if (pid == 0)
     {
@@ -30,6 +32,8 @@ int main()
     {
         cout << "Unable to create child process";
     }
+    
     cout << buf << endl;
+    
     return 0;
 }

@@ -13,7 +13,7 @@ void *runner(void *param)
     for (int i = 1; i <= *upper; i++)
         sum += 1;
     pthread_exit(0);
-}
+}ṇ
 
 int main()
 {

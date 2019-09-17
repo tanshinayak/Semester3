@@ -9,11 +9,13 @@ int main()
 	struct sysinfo s1;
 	struct utsname s2;
 	struct statfs s3;
+
 	r=sysinfo(&s1);
 	q=uname(&s2);
 	p=statfs("./",&s3);
 	MB=(1024*1024);
 	GB=(MB*1024);
+	
 	if(r==0&&q==0&p==0)
 	{
 		printf("\nSystem name:%s",s2.sysname);
@@ -26,8 +28,8 @@ int main()
 		printf("\nTotalsize of partition: %ldGB",(s3.f_bsize*s3.f_blocks)/GB);	
 	} 
 	else
-	{printf("error");
-	}
+		printf("error");
+	
 	return 0;
 }
 
